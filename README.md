@@ -44,9 +44,9 @@ cd GreenStich_Backend_Assignment/GreenStitch_Backend_Assignment
 ```
 
 {
-  "fullName": "Shubham Verma",
-  "password": "234$hubham",
-  "email": "verma@gmail.com"
+  "fullname": "Shubham httthd",
+  "password": "234$Verma",
+  "email": "the@gmail.com"
 }
 ```
 
@@ -55,9 +55,9 @@ cd GreenStich_Backend_Assignment/GreenStitch_Backend_Assignment
 ```
 {
     "id": 1,
-    "fullname": "Shubham Verma,
-    "password": "$2a$10$fpDvvfUltDIv9nTl.jzqv.TdfGmQYbVQuGNjJVHT83fGW6PCBVvK.",
-    "email": "verma@gmail.com",
+    "fullname": "Shubham httthd",
+    "password": "$2a$10$WuyorSfei0iCx7mhP4.apOBzSujGrl00wAqMsmIHS5wbDp4U7Tyva",
+    "email": "the@gmail.com",
     "role": "ROLE_USER"
 }
 
@@ -69,16 +69,16 @@ cd GreenStich_Backend_Assignment/GreenStitch_Backend_Assignment
 - Path: `http://localhost:8080/signIn`
 - Description: Authenticate a user and retrieve their details.
 - Authentication: Basic Authentication (Username and Password)
-    - Username: [verma@gmail.com](mailto:verma@gmail.com)
+    - Username: [the@gmail.com](mailto:the@gmail.com)
     - Password: 234$hubham
 - Response:
 
 ```
 {
     "id": 1,
-    "fullname": "Shubham Verma,
-    "password": "$2a$10$fpDvvfUltDIv9nTl.jzqv.TdfGmQYbVQuGNjJVHT83fGW6PCBVvK.",
-    "email": "verma@gmail.com",
+    "fullname": "Shubham httthd",
+    "password": "$2a$10$WuyorSfei0iCx7mhP4.apOBzSujGrl00wAqMsmIHS5wbDp4U7Tyva",
+    "email": "the@gmail.com",
     "role": "ROLE_USER"
 }
 
@@ -94,8 +94,8 @@ cd GreenStich_Backend_Assignment/GreenStitch_Backend_Assignment
     - Authorization: Bearer <token>
 - Response: A welcome message string.
 - Example:
-    - Bearer Token: eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJTaGltYmh1Iiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJza0BnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg1Njc3Mzg3LCJleHAiOjE2ODU3MDczODd9.VwM2IGD1fABjEcnNoMb4uIyBnYe3_BmZGx33dElaD-E
-    - Response: Welcome to Shubham's Website: Shubham Verma
+    - Bearer Token: eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJTaHViaGFtIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJ0aGVAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTY4NzMyMDcwMywiZXhwIjoxNjg3MzUwNzAzfQ.gcA9h1pfQaq1Wnh1P-hsFRy9EA6TwazIGsbpOXWrdyo
+    - Response: Welcome to Shubham's Website  : Shubham httthd
 
 ### Tech Stack
 
@@ -112,7 +112,7 @@ cd GreenStich_Backend_Assignment/GreenStitch_Backend_Assignment
 The following validation rules are applied to the user entity:
 
 - Full Name:
-    - Minimum length: 3 characters
+    - Minimum length: 6 characters
     - Maximum length: 20 characters
 - Password:
     - At least 8 characters
