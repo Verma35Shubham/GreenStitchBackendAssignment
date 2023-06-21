@@ -19,9 +19,9 @@ import lombok.NoArgsConstructor;
 public class UserData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
-    @Size(min = 3, max = 20,message = "Enter minimum 6 character in full name.")
+    @Size(min = 3, max = 20,message = "Enter minimum 3 character and maximum 20 characters in full name.")
     private String fullname;
 
     @Pattern(

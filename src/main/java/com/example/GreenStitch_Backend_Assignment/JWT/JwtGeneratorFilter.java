@@ -21,6 +21,8 @@ public class JwtGeneratorFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(null != authentication){
+            System.out.println("authentication "+authentication);
+
             SecretKey secretKey = Keys.hmacShaKeyFor(SecurityConstants.JWT_KEY.getBytes());
 
             String jwt = Jwts.builder()

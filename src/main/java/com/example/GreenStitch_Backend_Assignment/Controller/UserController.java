@@ -26,7 +26,7 @@ public class UserController {
     private UserRepository userRepository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder; //$2a$10$VYSz.9APz.j2t2LDgxzKLeBocX/SST64NLYWj.kPkqUMN7fgar2Wm
+    private PasswordEncoder passwordEncoder;
 
     @PostMapping("/app/signup")
     public ResponseEntity<UserData> registerUser(@Validated @RequestBody UserData userData) throws UserException {
@@ -36,7 +36,6 @@ public class UserController {
     }
     @GetMapping("/signIn")
     public ResponseEntity<UserData> getLoggedInCustomerDetailsHandler(Authentication authentication) throws BadCredentialsException {
-
         UserData customer= userRepository.findByEmail(authentication.getName());
 
         if(customer!=null)
@@ -51,7 +50,7 @@ public class UserController {
     {
         UserData userData =  userService.loginUser();
 
-        String message = "Welcome to Shubham's Website  : " +userData.getFullname();
+        String message = "Welcome to Shubham's Website  : " + userData.getFullname();
 
         return new ResponseEntity<String>(message,HttpStatus.OK);
     }
