@@ -1,18 +1,15 @@
 package com.example.GreenStitch_Backend_Assignment.Controller;
 
-import com.example.GreenStitch_Backend_Assignment.Exceptions.UserException;
-import com.example.GreenStitch_Backend_Assignment.Model.UserData;
+import com.example.GreenStitch_Backend_Assignment.DTO.JWTRequestDTO;
+import com.example.GreenStitch_Backend_Assignment.DTO.JWTResponseDTO;
+import com.example.GreenStitch_Backend_Assignment.DTO.UserRequestDTO;
+import com.example.GreenStitch_Backend_Assignment.Exceptions.AvailabilityException;
 import com.example.GreenStitch_Backend_Assignment.Repository.UserRepository;
 import com.example.GreenStitch_Backend_Assignment.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,36 +19,24 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @PostMapping("/app/signup")
-    public ResponseEntity<UserData> registerUser(@Validated @RequestBody UserData userData) throws UserException {
-        userData.setPassword(passwordEncoder.encode(userData.getPassword()));
-        UserData user = userService.registerUser(userData);
-        return  new ResponseEntity<UserData>(user, HttpStatus.CREATED);
-    }
-    @GetMapping("/signIn")
-    public ResponseEntity<UserData> getLoggedInCustomerDetailsHandler(Authentication authentication) throws BadCredentialsException {
-        UserData customer= userRepository.findByEmail(authentication.getName());
-
-        if(customer!=null)
-        {
-            return new ResponseEntity<>(customer, HttpStatus.ACCEPTED);
+    @PostMapping("/signup")
+    public ResponseEntity registerUser(@RequestBody UserRequestDTO userRequestDTO) throws AvailabilityException {
+        try{
+            JWTResponseDTO registerUser = userService.registerUser(userRequestDTO);
+            return new ResponseEntity(registerUser, HttpStatus.OK);
         }
-
-        throw new BadCredentialsException("Invalid Username or password");
+        catch (Exception e){
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
-    @GetMapping("/logged-in/user")
-    public ResponseEntity<String> LoginUser() throws UserException
-    {
-        UserData userData =  userService.loginUser();
-
-        String message = "Welcome to Shubham's Website  : " + userData.getFullname();
-
-        return new ResponseEntity<String>(message,HttpStatus.OK);
+    @PostMapping("/login")
+    public ResponseEntity getLoggedInToken(@RequestBody JWTRequestDTO authentication) throws Exception {
+        try{
+            JWTResponseDTO loginUser = userService.getLoggedInToken(authentication);
+            return ResponseEntity.ok(loginUser);
+        }catch(Exception e){
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
+
 }
