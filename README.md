@@ -6,7 +6,7 @@ This project is a backend implementation of a login and signup REST API with sec
 
 ```
 ### Prerequisites
-- Java Development Kit (JDK) 8 or later
+- Java Development Kit (JDK) 17 or later
 - Maven
 - Postman (for testing the API)
 ```
@@ -37,16 +37,17 @@ cd GreenStich_Backend_Assignment/GreenStitch_Backend_Assignment
 ### User Signup
 
 - Method: POST
-- Path: `http://localhost:8080/app/signup`
+- Path: `http://localhost:808/signup`
 - Description: Register a new user.
 - Request Body: User data in the JSON format (e.g., name, email, password).
 
 ```
 
 {
-  "fullname": "Shubham httthd",
+  "name": "Shubham httthd",
+  "email": "poa@gmail.com",
   "password": "234$Verma",
-  "email": "the@gmail.com"
+  "role":  "ADMIN"
 }
 ```
 
@@ -54,48 +55,31 @@ cd GreenStich_Backend_Assignment/GreenStitch_Backend_Assignment
 
 ```
 {
-    "id": 1,
-    "fullname": "Shubham httthd",
-    "password": "$2a$10$WuyorSfei0iCx7mhP4.apOBzSujGrl00wAqMsmIHS5wbDp4U7Tyva",
-    "email": "the@gmail.com",
-    "role": "ROLE_USER"
+    "jwtToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwb2FAZ21haWwuY29tIiwiZXhwIjoxNjg3NjMxMjA1LCJpYXQiOjE2ODc2MTMyMDV9.B2tSUlq5hMfBKPt0C1evONoSUCMV37Hrh_s9RXuAhQEzfZ5F-Lmo4_hwjXNLYCCj5vMM5yuNtgWU2tp3kJvFAw",
+    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwb2FAZ21haWwuY29tIiwiZXhwIjoxNjg3NjMxMjA1LCJpYXQiOjE2ODc2MTMyMDV9.B2tSUlq5hMfBKPt0C1evONoSUCMV37Hrh_s9RXuAhQEzfZ5F-Lmo4_hwjXNLYCCj5vMM5yuNtgWU2tp3kJvFAw"
 }
 
 ```
 
 ### User Login
 
-- Method: GET
-- Path: `http://localhost:8080/signIn`
+- Method: Post
+- Path: `http://localhost:8080/login`
 - Description: Authenticate a user and retrieve their details.
 - Authentication: Basic Authentication (Username and Password)
-    - Username: [the@gmail.com](mailto:the@gmail.com)
+    - Username: [the@gmail.com](mailto:poa@gmail.com)
     - Password: 234$hubham
 - Response:
 
 ```
 {
-    "id": 1,
-    "fullname": "Shubham httthd",
-    "password": "$2a$10$WuyorSfei0iCx7mhP4.apOBzSujGrl00wAqMsmIHS5wbDp4U7Tyva",
-    "email": "the@gmail.com",
-    "role": "ROLE_USER"
+    "jwtToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwb2FAZ21haWwuY29tIiwiZXhwIjoxNjg3NjMxMjA1LCJpYXQiOjE2ODc2MTMyMDV9.B2tSUlq5hMfBKPt0C1evONoSUCMV37Hrh_s9RXuAhQEzfZ5F-Lmo4_hwjXNLYCCj5vMM5yuNtgWU2tp3kJvFAw",
+    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwb2FAZ21haWwuY29tIiwiZXhwIjoxNjg3NjMxMjA1LCJpYXQiOjE2ODc2MTMyMDV9.B2tSUlq5hMfBKPt0C1evONoSUCMV37Hrh_s9RXuAhQEzfZ5F-Lmo4_hwjXNLYCCj5vMM5yuNtgWU2tp3kJvFAw"
 }
+
 
 ```
 
-### Welcome Endpoint (Requires Authentication)
-
-- Method: GET
-- Path: `http://localhost:8080/logged-in/user`
-- Description: A protected endpoint that requires authentication to access.
-- Authentication: Bearer Token
-- Request Header:
-    - Authorization: Bearer <token>
-- Response: A welcome message string.
-- Example:
-    - Bearer Token: eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJTaHViaGFtIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJ0aGVAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTY4NzMyMDcwMywiZXhwIjoxNjg3MzUwNzAzfQ.gcA9h1pfQaq1Wnh1P-hsFRy9EA6TwazIGsbpOXWrdyo
-    - Response: Welcome to Shubham's Website  : Shubham httthd
 
 ### Tech Stack
 
@@ -125,7 +109,7 @@ The following validation rules are applied to the user entity:
 
 ### Development
 
-The project can be imported and run using an IDE like Eclipse.
+The project can be imported and run using an IDE like IntellIj.
 
 ### Test API
 
@@ -142,13 +126,15 @@ The application is configured to use the H2 database. The configuration can be f
 server.port=8081
 
 # H2 Database Configuration
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
 spring.datasource.password=
 spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-spring.h2.console.enabled=true
-spring.h2.console.path=/h2-console
+spring.jpa.hibernate.ddl-auto=create
+jwt.secret=GreenStitch
 
 ```
 
