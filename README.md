@@ -8,6 +8,7 @@ This project is a backend implementation of a login and signup REST API with sec
 ### Prerequisites
 - Java Development Kit (JDK) 17 or later
 - Maven
+- JWT Filter & Validation
 - Postman (for testing the API)
 ```
 
