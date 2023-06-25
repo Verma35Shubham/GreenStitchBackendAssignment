@@ -74,10 +74,9 @@ cd GreenStich_Backend_Assignment/GreenStitch_Backend_Assignment
 
 ```
 {
-    "jwtToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwb2FAZ21haWwuY29tIiwiZXhwIjoxNjg3NjMxMjA1LCJpYXQiOjE2ODc2MTMyMDV9.B2tSUlq5hMfBKPt0C1evONoSUCMV37Hrh_s9RXuAhQEzfZ5F-Lmo4_hwjXNLYCCj5vMM5yuNtgWU2tp3kJvFAw",
-    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwb2FAZ21haWwuY29tIiwiZXhwIjoxNjg3NjMxMjA1LCJpYXQiOjE2ODc2MTMyMDV9.B2tSUlq5hMfBKPt0C1evONoSUCMV37Hrh_s9RXuAhQEzfZ5F-Lmo4_hwjXNLYCCj5vMM5yuNtgWU2tp3kJvFAw"
+    "jwtToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwb2FAZ21haWwuY29tIiwiZXhwIjoxNjg3NzEyMTU3LCJpYXQiOjE2ODc2OTQxNTd9.Q-dftqx3bWdvy0S8_aQ-SVSuhM6_VohGOA9INDusWBUYgbx7oVxqLM_LBVhwJZ0kTHbHwa_Al2-8x5nrP9ddSg",
+    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwb2FAZ21haWwuY29tIiwiZXhwIjoxNjg3NzEyMTU3LCJpYXQiOjE2ODc2OTQxNTd9.Q-dftqx3bWdvy0S8_aQ-SVSuhM6_VohGOA9INDusWBUYgbx7oVxqLM_LBVhwJZ0kTHbHwa_Al2-8x5nrP9ddSg"
 }
-
 
 ```
 
